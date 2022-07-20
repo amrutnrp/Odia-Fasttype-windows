@@ -6,7 +6,7 @@ This code is a  background process implementation for smooth typing interface.
 One doesn't need to type only on a window to get odia character.
 Any window supporting unicode encoding will display Odia characters upon typing.
 
-THe basic building block is complete.
+The basic building block is complete.
 But it's not perfect yet.
 
 # Referece :- 

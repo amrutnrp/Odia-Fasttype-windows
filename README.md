@@ -22,3 +22,6 @@ also, errors can be fixed faster with lua rather than waiting for compile->build
 
 
 before running, Add lua binaries and include files to /lua535 
+
+
+it was developed in windows + codeblocks + mingw + lua5.3

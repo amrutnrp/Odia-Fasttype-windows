@@ -9,13 +9,16 @@ Any window supporting unicode encoding will display Odia characters upon typing.
 The basic building block is complete.
 But it's not perfect yet.
 
+
 # Referece :- 
 
-python version - https://github.com/amrutnrp/Odia_Keyboard_Layout__Disguiser
 
-browser version -  https://github.com/amrutnrp/FastType-Odia
+tries to implement core in c++ and mapping/other scripting in lua
+lua helps change the behaviour of code on the fly
+while making sure the core interaction is in c++ and doesn't need recompilation every time code is modified
 
-...which is deployed at - https://amrutnrp.github.io/FastType-Odia/FastType.html
+also, errors can be fixed faster with lua rather than waiting for compile->build->run cycle in c++
 
 
 
+before running, Add lua binaries and include files to /lua535 

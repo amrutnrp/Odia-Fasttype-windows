@@ -86,14 +86,21 @@ for line in FR:
     if len (prev_ch) == 0 :
         how_manny_bksp = 0
     else:
-        how_manny_bksp = len(result) - len ( prev_ch )  + 1
+        how_manny_bksp = prev_length
     #print ( l4[0], result , len(result), len(prev_ch),how_manny_bksp )
     if prev_ch == '':
         prev_ch = '0'
     x=get_unicode_arr  (result,max_char_length) #test
     
     #is_prev_consonant = 1 if  prev_ch[-1] in consonant_list else 0
-    is_new_consonant = 'true' if result[-1] in consonant_list else 'false'
+    if len(result)== 0:
+        is_new_consonant = 'true'
+    else:
+        if result[-1] in consonant_list:
+            is_new_consonant = 'true'
+        else:
+            is_new_consonant = 'false'
+        
     a= '{},{},{},{},{},{},{},{},{},{}\n' .format( 
                                      kp,
                                      prev_ch,

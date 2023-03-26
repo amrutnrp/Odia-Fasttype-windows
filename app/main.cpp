@@ -82,7 +82,8 @@ HHOOK hHook{ NULL };
 bool switch_to_eng = false;
 bool is_shift_pressed, is_cap_pressed, is_upper;
 bool is_ctrl_pressed, is_alt_pressed, ctrl_n_alt;
-bool position_keys_pressed = false, undo_pressed = false, redo_pressed = false, cursor_changed;
+bool position_keys_pressed = false, undo_pressed = false, redo_pressed = false;
+bool cursor_changed, prorgess_flag = false;
 char result;
 int LUTindex;
 
@@ -92,13 +93,7 @@ int last_Unicode = 0, Unicode_length = 0;
 int temp_val;
 
 int max_char_length = 0;
-
-// shited to lua
-int len_pos = 0;
-int  len_backup1, lut_offset = 0;// len_pos  +1,;
- int do_i_need_bksp = 0 ;
- long int bkp_idx;
- int LUT[20][20] = {0};
+int do_i_need_bksp = 0;
 
 //=======================================================================
 enum Keys
@@ -224,11 +219,13 @@ LRESULT CALLBACK keyboard_hook(const int nCode, const WPARAM wParam, const LPARA
 			 }
 			 if (debug_flag) cout<<endl;
 			 //===================================== LUA block end
-
+            prorgess_flag = true;
 
             INPUT inputs[ Unicode_length  ] = {};
             ZeroMemory(inputs, sizeof(inputs));
-
+			if (debug_flag){
+				cout<<"BKSP: " <<do_i_need_bksp <<" " << Unicode_length <<endl;
+			}
 			// press backspace
              if ( do_i_need_bksp >0 ){
                 for ( int s = 0; s < do_i_need_bksp ; s ++){
@@ -265,11 +262,15 @@ LRESULT CALLBACK keyboard_hook(const int nCode, const WPARAM wParam, const LPARA
             {
                 std::cout<<"SendInput failed: "<<std::endl;
             }
+            prorgess_flag = false;
 			//  proessing done
 			return 1;
 		}
 		else if (wVirtKey == VK_PACKET || wVirtKey == VK_BACK)
 		     {;
+		     if (prorgess_flag == false) {
+                reset_values(L);
+		     }
 			}
 		else {
 			/*  some other key pressed !

@@ -331,8 +331,8 @@ int main(int argc, char* argv[])
 	{
 		lua_getglobal (L, "find_LUT_index");
 		if ( Check_lua_var(L,1)){ return 0; }
-		lua_getglobal (L, "do_algo");
-		if ( Check_lua_var(L,1)){ return 0; }
+		//lua_getglobal (L, "do_algo");
+		//if ( Check_lua_var(L,1)){ return 0; }
 
 		lua_getglobal (L, "next_bksp_count");
         if ( Check_lua_var(L,2)){ cout<<"FATAL1 "<<endl; return 0;}

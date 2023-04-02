@@ -16,10 +16,10 @@
 --]]
 
 
-debug_flag = true
+debug_flag = false
 dofile('other.lua')
 dofile('keymap.lua')
-dofile ('char2vkKey.lua')
+--dofile ('char2vkKey.lua')
 
 max_length = #keymap_table
 
@@ -151,7 +151,7 @@ function set_prev (a,b,c)
 	_G.prev_was_consonant = c
 	return 1
 end
-
+--[[
 function search (a) -- character in string, if it's capital
 	-- for readable inputs , only for debugging
 	local a2 = string.upper(a)
@@ -176,3 +176,5 @@ function do_algo ()
 	print (" Nope ")
 	
 end
+
+--]]

@@ -50,6 +50,7 @@ def get_unicode_arr(s, size ):
     return ','.join(arr)
 
 consonant_list = 'କଖଗଘଙଚଛଜଝଞଟଠଡଢଣଡ଼ଢ଼ତଥଦଧନପଫବଭମଯରଳଵସଶଷୱହୟଲ'
+# consonant_list = 'कखगघचछजझटठडढतथदधनणपफबभमयरलसषशहञव'
 for line in FR:
 
     l2 = line.split('//')

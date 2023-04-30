@@ -51,3 +51,7 @@ gen_cfg/5.translation_config.lua
 app/keymap.lua
 
 app/bin/Debug/*
+
+
+
+!/executables/*
